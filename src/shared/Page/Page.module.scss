@@ -1,0 +1,8 @@
+.page {
+    min-height: 100vh;
+    max-width: calc(100vw - var(--sidebar-widght));
+    background-color: var(--base-color);
+    padding: 40px 32px 0 32px;
+    /*border: 1px solid #eb7c2034;*/
+    flex: 1;
+}
