@@ -24,8 +24,15 @@
   color: white;
 }
 
+.App-title {
+  font-size: 48px;
+  margin-top: 80px;
+  font-weight: 900;
+ }
+
 .App-link {
-  color: #61dafb;
+  /*color: #61dafb;*/
+  color: #436ffc;
 }
 
 @keyframes App-logo-spin {
