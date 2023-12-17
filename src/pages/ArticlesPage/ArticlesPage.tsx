@@ -1,18 +1,18 @@
 import {FC} from "react";
 import {Page} from "../../shared/Page/Page";
 import {classNames} from "../../shared/classNames/classNames";
-import cls from "./Multiplication.module.scss";
+import cls from "./ArticlesPage.module.scss";
 
 
-interface MultiplicationProps {
+interface ArticlesPageProps {
   className?: string;
 }
 
-export const Multiplication: FC<MultiplicationProps> = ({ className }) => {
+export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   return (
-    <Page className={cls.multiplication}>
+    <Page className={cls.articlesPage}>
       <div className={classNames(cls.content, {}, [className])}>
-        <div className={cls.title}>Умножение</div>
+        <div className={cls.title}>Статьи</div>
         <div className={cls.table}>Карточки</div>
       </div>
     </Page>

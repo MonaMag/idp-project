@@ -1,7 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import logo from "../../assets/logo/logo.svg";
+import logo from "../../assets/logo/logo.png";
 import { AppLink } from "../../shared/AppLink/AppLink";
+import  { ReactComponent as MainIcon} from '../../assets/icons/main-20-20.svg';
+import { ReactComponent as ProfileIcon} from '../../assets/icons/profile-20-20.svg';
+import { ReactComponent as ArticleIcon} from '../../assets/icons/article-20-20.svg';
 import cls from "./Sidebar.module.scss";
 
 interface SidebarProps {
@@ -16,16 +19,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div className={cls.sidebarContent}>
         <img src={logo} alt="logo" className={cls.logoMath} />
         <div className={cls.links}>
-          <AppLink to={"/count"} className={cls.link}>
-            <span>Счет чисел</span>
+          <AppLink to={"/main"} className={cls.link}>
+            <MainIcon className={cls.icon}/>
+            <span className={cls.linkText}>Главная</span>
           </AppLink>
 
-          <AppLink to={"/multiplication"} className={cls.link}>
-            Умножение
+          <AppLink to={"/profile"} className={cls.link}>
+           <ProfileIcon className={cls.icon}/> <span className={cls.linkText}>Профиль</span>
           </AppLink>
 
-          <AppLink to={"/division"} className={cls.link}>
-            Деление
+          <AppLink to={"/articles"} className={cls.link}>
+            <ArticleIcon className={cls.icon}/> <span className={cls.linkText}>Статьи</span>
           </AppLink>
         </div>
       </div>

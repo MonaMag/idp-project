@@ -24,6 +24,15 @@
             align-items: flex-start;
             .link {
                 padding: 8px 0 8px 0;
+                .linkText {
+                    margin-left: 5px;
+                    &:hover {
+                        fill: var(--primary-color);
+                    }
+                }
+                .icon {
+                   fill: var( --secondary-text-color);
+                }
             }
         }
     }

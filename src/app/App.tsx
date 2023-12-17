@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/index.scss";
+import "./styles/index.scss";
 import { ConfigProvider } from "antd";
 import AppRouter from "./router/AppRouter";
 import { Sidebar } from "../widgets/Sidebar/Sidebar";

@@ -1,18 +1,18 @@
 import {FC} from "react";
 import {Page} from "../../shared/Page/Page";
 import {classNames} from "../../shared/classNames/classNames";
-import cls from "./Division.module.scss";
+import cls from "./ProfilePage.module.scss";
 
 
-interface DivisionProps {
+interface ProfilePageProps {
   className?: string;
 }
 
-export const Division: FC<DivisionProps> = ({ className }) => {
+export const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
-    <Page className={cls.division}>
+    <Page className={cls.profilePage}>
       <div className={classNames(cls.content, {}, [className])}>
-        <div className={cls.title}>Деление</div>
+        <div className={cls.title}>Profile</div>
         <div className={cls.table}>Карточки</div>
       </div>
     </Page>
