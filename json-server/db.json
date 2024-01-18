@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "123",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
+
+
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Mona",
+      "lastname": "Mag",
+      "age": 35,
+      "username": "mona",
+      "avatar": "https://w7.pngwing.com/pngs/851/642/png-transparent-girls-avatar-creative-girl-color-girls-drawing-girls-thumbnail.png"
+    },
+    {
+      "id": "2",
+      "firstname": "Kira",
+      "lastname": "Karimova",
+      "age": 25,
+      "username": "kira",
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/01/ava-anime-14.jpg"
+    }
+  ]
+}
