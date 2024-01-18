@@ -43,8 +43,12 @@
         justify-content: flex-end;
         .btn {
             background: none;
-            padding: 8px 0 8px 0;
+            padding: 8px 0;
             color: var(--primary-text-color);
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &:hover {
                 opacity: 0.8;
                 cursor: pointer;
