@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "start:server": "node ./json-server/index.js",
-    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
+    "start:server": "json-server -w ./json-server/db.json -p 3001",
+    "start:dev": "concurrently \"npm start\" \"npm run start:server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -19,9 +19,10 @@
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "@types/react-router-dom": "^5.3.3",
-    "typescript": "^4.9.5",
+    "json-server": "^0.17.4",
     "prettier": "3.1.1",
-    "json-server": "^0.17.4"
+    "typescript": "^4.9.5",
+    "concurrently": "^8.2.2"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
@@ -56,5 +57,4 @@
       "last 1 safari version"
     ]
   }
-
 }

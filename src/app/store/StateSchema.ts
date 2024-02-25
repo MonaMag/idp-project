@@ -1,5 +1,5 @@
-import { UserSchema } from '../../entities/User/model/types/user';
+import { articlesApi } from '../../entities/Article/api/articlesApi';
 
 export interface StateSchema {
-  user: UserSchema;
+  [articlesApi.reducerPath]: ReturnType<typeof articlesApi.reducer>;
 }
