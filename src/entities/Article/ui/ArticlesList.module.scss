@@ -1,0 +1,19 @@
+.articleList {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .title {
+      font-size: 28px;
+      color: var(--primary-text-color);
+      padding-bottom: 20px;
+    }
+  }
+}

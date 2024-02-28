@@ -1,4 +1,3 @@
-import { User } from '../../../User/model/types/user';
 import { ArticleBlockType, ArticleType } from '../consts/consts';
 
 export interface ArticleBlockBase {
@@ -30,7 +29,7 @@ export interface Article {
   title: string;
   subtitle: string;
   img: string;
-  user: User;
+  userId: number;
   views: number;
   createdAt: string;
   type: ArticleType[];

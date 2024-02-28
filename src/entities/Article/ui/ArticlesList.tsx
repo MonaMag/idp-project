@@ -1,11 +1,24 @@
-import cls from '../../../pages/MainPage/MainPage.module.scss';
 import { classNames } from '../../../shared/classNames/classNames';
 
-export const ArticlesList = () => {
+import cls from './ArticlesList.module.scss';
+import { Article } from '../model/types/types';
+import { ArticleItem } from './ArticleItem';
+
+interface ArticlesListProps {
+  isLoading: boolean;
+  articles: Article[];
+}
+
+export const ArticlesList = ({ isLoading, articles }: ArticlesListProps) => {
+  if (!isLoading && !articles.length) {
+    return <div>Статьи не найдены</div>;
+  }
+
   return (
-    <div className={classNames(cls.content, {}, [])}>
-      <div className={cls.title}>Статья 1</div>
-      <div className={cls.cards}>Детали</div>
+    <div className={classNames(cls.articleList, {}, [])}>
+      {articles.map((item) => (
+        <ArticleItem article={item} key={item.id} />
+      ))}
     </div>
   );
 };

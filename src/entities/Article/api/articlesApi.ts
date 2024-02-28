@@ -7,10 +7,10 @@ export const articlesApi = createApi({
     baseUrl: 'http://localhost:3001/',
   }),
   endpoints: (builder) => ({
-    getArticles: builder.query<Article[], null>({
-      query: () => `articles`,
+    getArticles: builder.query<Article[], string>({
+      query: (limit = '') => `articles?${limit && `_limit=${limit}`}}`,
     }),
   }),
 });
 
-export const { useGetArticlesQuery } = articlesApi;
+export const { useGetArticlesQuery, useAddArticleMutation } = articlesApi;

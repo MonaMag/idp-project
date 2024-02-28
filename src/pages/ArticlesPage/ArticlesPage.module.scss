@@ -1,4 +1,4 @@
-.division {
+.articlesPage {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -9,10 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    .title {
-      font-size: 28px;
-      color: var(--primary-text-color);
-      padding-bottom: 20px;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+      .select {
+        width: 70px;
+      }
     }
   }
 
