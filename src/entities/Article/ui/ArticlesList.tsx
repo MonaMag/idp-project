@@ -7,7 +7,7 @@ import { ArticleItem } from './ArticleItem';
 interface ArticlesListProps {
   isLoading: boolean;
   articles: Article[];
-  handleDelete: (article: Article) => void;
+  handleDelete: (id: number) => void;
   handleUpdate: (article: Article) => void;
 }
 

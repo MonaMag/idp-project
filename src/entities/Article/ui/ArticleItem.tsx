@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, memo, MouseEvent } from 'react';
 import { Article } from '../model/types/types';
 import { Button, Card } from 'antd';
 import Meta from 'antd/es/card/Meta';
@@ -8,23 +8,22 @@ import cls from '../../../pages/MainPage/MainPage.module.scss';
 interface ArticleItemProps {
   className?: string;
   article: Article;
-  remove: (article: Article) => void;
+  remove: (id: number) => void;
   update: (article: Article) => void;
 }
 
-export const ArticleItem = ({ article, remove, update }: ArticleItemProps) => {
-  //console.log('article', article);
-
-  const handleRemove = (event: React.MouseEvent) => {
+export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) => {
+  const handleRemove = useCallback((event: MouseEvent<HTMLElement>) => {
     event.stopPropagation();
-    remove(article);
-  };
 
-  const handleUpdate = (event: React.MouseEvent) => {
+    remove(article.id);
+  }, [article]);
+
+  const handleUpdate = useCallback((event: React.MouseEvent) => {
     const title = prompt() || '';
     console.log('title', title);
     update({ ...article, title: title });
-  };
+  }, [article]);
 
   return (
     <div className={classNames(cls.content, {}, [])}>
@@ -46,4 +45,4 @@ export const ArticleItem = ({ article, remove, update }: ArticleItemProps) => {
       </Card>
     </div>
   );
-};
+});

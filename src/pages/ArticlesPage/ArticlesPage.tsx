@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { Button, Input, Select } from 'antd';
 import { Page } from '../../shared/Page/Page';
 import { classNames } from '../../shared/classNames/classNames';
@@ -11,6 +11,7 @@ import {
 } from '../../entities/Article/api/articlesApi';
 import cls from './ArticlesPage.module.scss';
 import { Article } from '../../entities/Article/model/types/types';
+import { useNavigate } from 'react-router-dom';
 
 interface ArticlesPageProps {
   className?: string;
@@ -26,35 +27,41 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const [removeArticle, {}] = useRemoveArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
 
-  if (error) {
-    return <p>Ошибка при загрузке статей</p>;
-  }
+  const navigate = useNavigate()
+
+  const handleRemove = useCallback(async (id: number) => {
+    console.log('id: ', id);
+    await removeArticle(id)
+  }, [removeArticle])
+
+  const handleUpdate = useCallback((article: Article) => {
+    updateArticle(article);
+  }, [updateArticle])
+
+  useEffect(() => {
+    console.log('DATA', data);
+  }, [data]);
+
   const handleAddArticle = async () => {
     if (title) {
-      await addArticle({
-        id: 22,
-        title: title,
-        subtitle: subtitle,
-      });
+      console.log('title')
+      // await addArticle({
+      //   id: 22,
+      //   title: title,
+      //   subtitle: subtitle,
+      // });
     }
   };
 
   //console.log('articlesApi', articlesApi);
-  const handleRemove = async (article: Article) => {
-    await removeArticle(article).then((res) => console.log(res));
-  };
-
-  const handleUpdate = (article: Article) => {
-    updateArticle(article);
-  };
-
   const handleChangeSelect = (value: string) => {
     setLimit(value);
   };
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    console.log('DATA', data);
-  }, [data]);
+
+  if (error) {
+    return <p>Ошибка при загрузке статей</p>;
+  }
 
   return (
     <Page className={cls.articlesPage}>
