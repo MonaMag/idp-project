@@ -1,4 +1,4 @@
-import { ArticleBlockType, ArticleType } from '../consts/consts';
+import { ArticleBlockType } from '../consts/consts';
 
 export interface ArticleBlockBase {
   id: string;
@@ -24,8 +24,8 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
-export interface Article {
-  id: string;
+/*export interface Article {
+  id: number;
   title: string;
   subtitle: string;
   img: string;
@@ -34,4 +34,10 @@ export interface Article {
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
+}*/
+
+export interface Article {
+  id: number;
+  title: string;
+  subtitle: string;
 }
