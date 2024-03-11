@@ -37,21 +37,20 @@ export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlo
 }*/
 
 export interface Article {
-  id: number;
+  id?: number;
   title: string;
   subtitle: string;
-  img: string
-  views: number
-  createdAt: string
-  userId: string
-  type: string[]
-  blocks: {
-    id?: string
-    type?: string
-    title?: string
-    paragraphs?: string[]
-    code?: string
-    src?: string
-  }[]
+  img?: string;
+  views?: number;
+  createdAt: string;
+  userId?: string;
+  type?: string[];
+  blocks?: {
+    id?: string;
+    type?: string;
+    title?: string;
+    paragraphs?: string[];
+    code?: string;
+    src?: string;
+  }[];
 }
-

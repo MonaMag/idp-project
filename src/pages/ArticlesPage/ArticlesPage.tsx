@@ -27,16 +27,22 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const [removeArticle, {}] = useRemoveArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleRemove = useCallback(async (id: number) => {
-    console.log('id: ', id);
-    await removeArticle(id)
-  }, [removeArticle])
+  const handleRemove = useCallback(
+    async (id: number) => {
+      console.log('id: ', id);
+      await removeArticle(id);
+    },
+    [removeArticle],
+  );
 
-  const handleUpdate = useCallback((article: Article) => {
-    updateArticle(article);
-  }, [updateArticle])
+  const handleUpdate = useCallback(
+    (article: Article) => {
+      updateArticle(article);
+    },
+    [updateArticle],
+  );
 
   useEffect(() => {
     console.log('DATA', data);
@@ -44,20 +50,18 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   const handleAddArticle = async () => {
     if (title) {
-      console.log('title')
-      // await addArticle({
-      //   id: 22,
-      //   title: title,
-      //   subtitle: subtitle,
-      // });
+      console.log('title');
+      await addArticle({
+        title: title,
+        subtitle: subtitle,
+        createdAt: new Date().toLocaleString(),
+      });
     }
   };
 
-  //console.log('articlesApi', articlesApi);
   const handleChangeSelect = (value: string) => {
     setLimit(value);
   };
-  // eslint-disable-next-line react-hooks/rules-of-hooks
 
   if (error) {
     return <p>Ошибка при загрузке статей</p>;

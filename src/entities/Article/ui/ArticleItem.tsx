@@ -3,7 +3,9 @@ import { Article } from '../model/types/types';
 import { Button, Card } from 'antd';
 import Meta from 'antd/es/card/Meta';
 import { classNames } from '../../../shared/classNames/classNames';
-import cls from '../../../pages/MainPage/MainPage.module.scss';
+import cls from './ArticlesList.module.scss';
+import { AppLink } from '../../../shared/AppLink/AppLink';
+import { EditOutlined, DeleteOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 interface ArticleItemProps {
   className?: string;
@@ -13,35 +15,50 @@ interface ArticleItemProps {
 }
 
 export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) => {
-  const handleRemove = useCallback((event: MouseEvent<HTMLElement>) => {
-    event.stopPropagation();
+  const handleRemove = useCallback(
+    (event: MouseEvent<HTMLElement>) => {
+      event.stopPropagation();
+      if (article.id) {
+        remove(article.id);
+      }
+    },
+    [article],
+  );
 
-    remove(article.id);
-  }, [article]);
-
-  const handleUpdate = useCallback((event: React.MouseEvent) => {
-    const title = prompt() || '';
-    console.log('title', title);
-    update({ ...article, title: title });
-  }, [article]);
+  const handleUpdate = useCallback(
+    (event: React.MouseEvent) => {
+      const title = prompt() || '';
+      console.log('title', title);
+      update({ ...article, title: title });
+    },
+    [article],
+  );
 
   return (
     <div className={classNames(cls.content, {}, [])}>
       <Card
         hoverable
         onClick={handleUpdate}
-        style={{ width: 240, margin: 10, backgroundColor: 'beige' }}
+        className={cls.card}
         /*cover={<img alt={article.title} src={article.img} style={{ height: 250 }} />}*/
-        /*actions={[
+        actions={[
           <EditOutlined key="edit" />,
           <DeleteOutlined key="ellipsis" onClick={handleRemove} />,
           <AppLink to={`/articles/${article.id}`} className={cls.link}>
             <EllipsisOutlined key="ellipsis" />
           </AppLink>,
-        ]}*/
+        ]}
       >
-        <Meta title={article.title} description={article.subtitle} />
-        <Button onClick={handleRemove}>Удалить</Button>
+        <Meta
+          title={article.title}
+          description={
+            <div className={cls.description}>
+              <p>{article.subtitle}</p>
+              <span>{article.createdAt}</span>
+            </div>
+          }
+        />
+        {/*<Button onClick={handleRemove}>Удалить</Button>*/}
       </Card>
     </div>
   );
