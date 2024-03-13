@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -17,15 +18,24 @@
       .input {
         width: 300px;
       }
+      @media (max-width: 990px) {
+        .input {
+          margin-bottom: 10px;
+        }
+      }
       .select {
         width: 70px;
       }
     }
-  }
-
-/*  @media (max-width: 990px) {
-    .btnConnect {
-      margin-top: 24px;
+    @media (max-width: 990px) {
+      .header {
+        flex-wrap: wrap;
+      }
     }
-  }*/
+    @media (min-width: 1200px) {
+      .header {
+        width: 70%;
+      }
+    }
+  }
 }

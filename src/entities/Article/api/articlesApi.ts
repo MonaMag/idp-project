@@ -8,9 +8,12 @@ export const articlesApi = createApi({
     baseUrl: 'http://localhost:3001/',
   }),
   endpoints: (builder) => ({
-    getArticles: builder.query<Article[], void>({
-      query: () => ({
+    getArticles: builder.query<Article[], string>({
+      query: (limit = '') => ({
         url: `articles`,
+        params: {
+          _limit: limit,
+        },
       }),
       providesTags: (result) => ['Articles'],
     }),
@@ -35,7 +38,7 @@ export const articlesApi = createApi({
         return {
           url: `articles/${id}`,
           method: 'DELETE',
-        }
+        };
       },
       invalidatesTags: ['Articles'],
     }),

@@ -22,7 +22,7 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const [title, setTitle] = useState('');
   const [subtitle, setSubtitle] = useState('Article');
 
-  const { data, isLoading, error } = useGetArticlesQuery();
+  const { data, isLoading, error } = useGetArticlesQuery(limit);
   const [addArticle, {}] = useAddArticleMutation();
   const [removeArticle, {}] = useRemoveArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
@@ -78,7 +78,7 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
             onChange={(e) => setTitle(e.target.value)}
           />
           <Button onClick={handleAddArticle}>Добавить статью</Button>
-          <Select className={cls.select} defaultValue={limit} onChange={handleChangeSelect}>
+          <Select className={cls.select} value={limit} onChange={handleChangeSelect}>
             <Select.Option value="">все</Select.Option>
             <Select.Option value="4">4</Select.Option>
             <Select.Option value="8">8</Select.Option>

@@ -53,8 +53,9 @@ export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) 
           title={article.title}
           description={
             <div className={cls.description}>
-              <p>{article.subtitle}</p>
-              <span>{article.createdAt}</span>
+              <p className={cls.descriptionTitle}>{article.subtitle}</p>
+              <p>{article.paragraphs}</p>
+              <span className={cls.date}>{article.createdAt}</span>
             </div>
           }
         />

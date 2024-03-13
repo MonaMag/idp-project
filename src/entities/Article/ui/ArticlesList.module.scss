@@ -1,16 +1,16 @@
 .articleList {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap;
   .content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     .card{
-      width: 600px;
-      margin: 10px;
+      width: 100%;
+      margin: 10px 0;
       background-color: beige;
       .title {
         font-size: 28px;
@@ -19,8 +19,21 @@
       }
       .description {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         margin-bottom: 10px;
+        color: black;
+        .descriptionTitle {
+          font-weight: bolder;
+        }
+        .date {
+          margin-top: 20px;
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      .card {
+        width: 70%;
       }
     }
   }
