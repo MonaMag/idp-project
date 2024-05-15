@@ -1,11 +1,11 @@
-import React, { useCallback, memo, MouseEvent } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Article } from '../model/types/types';
-import { Button, Card } from 'antd';
+import { Card, Popconfirm } from 'antd';
 import Meta from 'antd/es/card/Meta';
 import { classNames } from '../../../shared/classNames/classNames';
 import cls from './ArticlesList.module.scss';
 import { AppLink } from '../../../shared/AppLink/AppLink';
-import { EditOutlined, DeleteOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 interface ArticleItemProps {
   className?: string;
@@ -15,15 +15,15 @@ interface ArticleItemProps {
 }
 
 export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) => {
-  const handleRemove = useCallback(
-    (event: MouseEvent<HTMLElement>) => {
-      event.stopPropagation();
-      if (article.id) {
-        remove(article.id);
-      }
-    },
-    [article],
-  );
+  console.log('ARTICLE', article);
+
+  const handleRemove = useCallback(() => {
+    console.log('REMOVE');
+    //event.stopPropagation();
+    if (article.id) {
+      remove(article.id);
+    }
+  }, [article]);
 
   const handleUpdate = useCallback(
     (event: React.MouseEvent) => {
@@ -34,16 +34,35 @@ export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) 
     [article],
   );
 
+  const renderTypeContent = (type: string) => {
+    switch (type) {
+      case 'IT':
+        return <div className={cls.date}>{article.direction}</div>;
+        break;
+      case 'ECONOMICS':
+        return <div className={cls.date}>{article.countries}</div>;
+        break;
+      case 'SCIENCE':
+        return <div className={cls.date}>{article.bibliography}</div>;
+        break;
+    }
+  };
+
   return (
     <div className={classNames(cls.content, {}, [])}>
       <Card
         hoverable
-        onClick={handleUpdate}
         className={cls.card}
-        /*cover={<img alt={article.title} src={article.img} style={{ height: 250 }} />}*/
         actions={[
-          <EditOutlined key="edit" />,
-          <DeleteOutlined key="ellipsis" onClick={handleRemove} />,
+          <EditOutlined key="edit" onClick={handleUpdate} />,
+          <Popconfirm
+            title="Вы уверены, что хотите удалить статью?"
+            okText="Yes"
+            cancelText="No"
+            onConfirm={handleRemove}
+          >
+            <DeleteOutlined key="ellipsis" />
+          </Popconfirm>,
           <AppLink to={`/articles/${article.id}`} className={cls.link}>
             <EllipsisOutlined key="ellipsis" />
           </AppLink>,
@@ -54,12 +73,12 @@ export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) 
           description={
             <div className={cls.description}>
               <p className={cls.descriptionTitle}>{article.subtitle}</p>
-              <p>{article.paragraphs}</p>
-              <span className={cls.date}>{article.createdAt}</span>
+              <p>{article.paragraph}</p>
+              <div className={cls.date}>{article.createdArt}</div>
+              <div className={cls.date}>{renderTypeContent(article.type)}</div>
             </div>
           }
         />
-        {/*<Button onClick={handleRemove}>Удалить</Button>*/}
       </Card>
     </div>
   );

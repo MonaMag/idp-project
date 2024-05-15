@@ -1,17 +1,16 @@
 import { FC, useCallback, useEffect, useState } from 'react';
-import { Button, Input, Select } from 'antd';
+import { Select } from 'antd';
 import { Page } from '../../shared/Page/Page';
 import { classNames } from '../../shared/classNames/classNames';
 import { ArticlesList } from '../../entities/Article/ui/ArticlesList';
 import {
-  useAddArticleMutation,
   useGetArticlesQuery,
   useRemoveArticleMutation,
   useUpdateArticleMutation,
 } from '../../entities/Article/api/articlesApi';
 import cls from './ArticlesPage.module.scss';
 import { Article } from '../../entities/Article/model/types/types';
-import { useNavigate } from 'react-router-dom';
+import { AddArticleModal } from '../../feature/AddArticle/AddArticleModal';
 
 interface ArticlesPageProps {
   className?: string;
@@ -19,15 +18,15 @@ interface ArticlesPageProps {
 
 export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const [limit, setLimit] = useState('');
-  const [title, setTitle] = useState('');
-  const [subtitle, setSubtitle] = useState('Article');
+  //const [title, setTitle] = useState('');
+  //const [subtitle, setSubtitle] = useState('Article');
 
   const { data, isLoading, error } = useGetArticlesQuery(limit);
-  const [addArticle, {}] = useAddArticleMutation();
+  //const [addArticle, {}] = useAddArticleMutation();
   const [removeArticle, {}] = useRemoveArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleRemove = useCallback(
     async (id: number) => {
@@ -48,16 +47,16 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     console.log('DATA', data);
   }, [data]);
 
-  const handleAddArticle = async () => {
+  /*  const handleAddArticle = async () => {
     if (title) {
       console.log('title');
       await addArticle({
         title: title,
         subtitle: subtitle,
-        createdAt: new Date().toLocaleString(),
+        createdArt: new Date().toLocaleString(),
       });
     }
-  };
+  };*/
 
   const handleChangeSelect = (value: string) => {
     setLimit(value);
@@ -71,13 +70,7 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     <Page className={cls.articlesPage}>
       <div className={classNames(cls.content, {}, [className])}>
         <div className={cls.header}>
-          <Input
-            type="text"
-            value={title}
-            className={cls.input}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <Button onClick={handleAddArticle}>Добавить статью</Button>
+          <AddArticleModal />
           <Select className={cls.select} value={limit} onChange={handleChangeSelect}>
             <Select.Option value="">все</Select.Option>
             <Select.Option value="4">4</Select.Option>

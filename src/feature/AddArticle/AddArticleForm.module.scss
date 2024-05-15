@@ -1,0 +1,54 @@
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.input {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.label {
+
+}
+
+.errorInput {
+    border: 1px solid red;
+}
+
+.errorInput:hover {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+}
+
+.select {
+    border-radius: 8px;
+    margin-top: 10px;
+    font: var(--font-s);
+    outline: none;
+    width: 100%;
+}
+
+.button {
+    margin-top: 20px;
+}

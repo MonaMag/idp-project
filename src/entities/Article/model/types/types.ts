@@ -1,11 +1,14 @@
 export interface Article {
   id?: number;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   img?: string;
   views?: number;
-  createdAt: string;
+  createdArt?: string;
   userId?: string;
-  type?: string[];
-  paragraphs?: string;
+  type: string;
+  paragraph: string;
+  bibliography?: string;
+  direction?: string;
+  countries?: string[];
 }
