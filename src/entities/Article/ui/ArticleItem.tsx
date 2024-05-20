@@ -57,8 +57,8 @@ export const ArticleItem = memo(({ article, remove, update }: ArticleItemProps) 
           <EditOutlined key="edit" onClick={handleUpdate} />,
           <Popconfirm
             title="Вы уверены, что хотите удалить статью?"
-            okText="Yes"
-            cancelText="No"
+            okText="Да"
+            cancelText="Нет"
             onConfirm={handleRemove}
           >
             <DeleteOutlined key="ellipsis" />

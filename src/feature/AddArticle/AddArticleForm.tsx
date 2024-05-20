@@ -30,21 +30,19 @@ const optionsDirection: SelectProps['options'] = [
 ];
 
 const optionsCountries: SelectProps['options'] = [
-  { value: 'china', label: 'Китай' },
-  { value: 'usa', label: 'США' },
-  { value: 'india', label: 'Индия' },
-  { value: 'japan', label: 'Япония' },
-  { value: 'russia', label: 'Россия' },
-  { value: 'germany', label: 'Германия' },
+  { value: 'China', label: 'Китай' },
+  { value: 'USA', label: 'США' },
+  { value: 'India', label: 'Индия' },
+  { value: 'Japan', label: 'Япония' },
+  { value: 'Russia', label: 'Россия' },
+  { value: 'Germany', label: 'Германия' },
 ];
 
 const AddArticleForm: FC<AddArticleFormProps> = memo(({ onClose, onOk, createArticle }) => {
   const [isSubtitle, setIsSubtitle] = useState<boolean>(false);
 
-  const onChange: CheckboxProps['onChange'] = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-    setIsSubtitle(e.target.checked);
-    console.log('isSubtitle', isSubtitle);
+  const handleCheckboxChange: CheckboxProps['onChange'] = () => {
+    setIsSubtitle(!isSubtitle);
   };
 
   const formik = useFormik({
@@ -63,10 +61,10 @@ const AddArticleForm: FC<AddArticleFormProps> = memo(({ onClose, onOk, createArt
         /*.matches(/^[a-z0-9]$/, 'Наименование статьи содержит цифры, строчные буквы, символы - и _')*/
         .max(40, 'Количество символов не должно превышать 20')
         .required('Введите название статьи'),
-      subtitle: Yup.string()
+      /*    subtitle: Yup.string()
         .min(20, 'Количество символов не менее 20')
         .max(100, 'Количество символов не должно превышать 100')
-        .required('Введите краткое описание статьи'),
+        .required('Введите краткое описание статьи'),*/
       paragraph: Yup.string()
         .min(20, 'Количество символов не менее 20')
         .required('Ведите текст статьи'),
@@ -104,27 +102,30 @@ const AddArticleForm: FC<AddArticleFormProps> = memo(({ onClose, onOk, createArt
             ) : null}
           </div>
           <div className={cls.item}>
-            <Checkbox onChange={onChange}>Добавить краткое описание</Checkbox>
+            <Checkbox onChange={handleCheckboxChange}>Добавить краткое описание</Checkbox>
           </div>
-          <div className={cls.item}>
-            <label htmlFor="title" className={cls.label}>
-              Краткое описание
-            </label>
-            <Input
-              id="subtitle"
-              name="subtitle"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.subtitle}
-              className={classNames(cls.input, {
-                [cls.errorInput]: formik.errors.subtitle,
-              })}
-            />
-            {formik.touched.subtitle && formik.errors.subtitle ? (
-              <div className={cls.error}>{formik.errors.subtitle}</div>
-            ) : null}
-          </div>
+          {isSubtitle && (
+            <div className={cls.item}>
+              <label htmlFor="title" className={cls.label}>
+                Краткое описание
+              </label>
+              <Input
+                id="subtitle"
+                name="subtitle"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.subtitle}
+                disabled={!isSubtitle}
+                className={classNames(cls.input, {
+                  [cls.errorInput]: formik.errors.subtitle,
+                })}
+              />
+              {formik.touched.subtitle && formik.errors.subtitle ? (
+                <div className={cls.error}>{formik.errors.subtitle}</div>
+              ) : null}
+            </div>
+          )}
           <div className={cls.item}>
             <label htmlFor="paragraph" className={cls.label}>
               Статья

@@ -3,15 +3,17 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
   .content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
     .card{
-      width: 100%;
       margin: 10px 0;
       background-color: beige;
+      width: 100%;
       .title {
         font-size: 28px;
         color: var(--primary-text-color);
@@ -32,10 +34,11 @@
         }
       }
     }
-    @media (min-width: 1200px) {
-      .card {
-        width: 70%;
-      }
-    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .articleList {
+    width: 70%;
   }
 }

@@ -40,7 +40,7 @@
   "articles": [
     {
       "id": 1,
-      "title": "JavaScript news",
+      "title": "",
       "subtitle": "Функции высшего порядка в JavaScript",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
@@ -79,7 +79,7 @@
     },
     {
       "id": 4,
-      "title": "Extensions для VS Code",
+      "title": "",
       "subtitle": "В этой статье мы поговорим о полезных extensions для VS Code, которые помогут вам с рефакторингом вашего проекта и работой с тех долгом",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
@@ -142,6 +142,105 @@
       "paragraph": "Текст статьи, о чем она, какую тему раскрывает и тд ",
       "createdArt": "13.03.2024, 18:06:56",
       "id": 13
+    },
+    {
+      "title": "Виды тестирования",
+      "subtitle": "Веб-тестирование является важной частью сборки любого веб-приложения или веб-сайта",
+      "paragraph": "1. Функциональное и нефункциональное тестирование\n2. Статическое и динамическое тестирование\n3. Автоматическое и ручное тестирование",
+      "type": "IT",
+      "bibliography": "",
+      "direction": "programming",
+      "countries": [],
+      "createdArt": "15.05.2024, 10:09:21",
+      "id": 14
+    },
+    {
+      "title": "ролпопо",
+      "subtitle": "лорпорпрпрорплпрорпрпоь",
+      "paragraph": "ороро пропрорпо прлпрлплпльи",
+      "type": "ECONOMICS",
+      "bibliography": "",
+      "direction": "",
+      "countries": "japan",
+      "createdArt": "15.05.2024, 10:09:21",
+      "id": 16
+    },
+    {
+      "title": "На удаление",
+      "subtitle": "hfghfghfghfgjhghjghjghjghj",
+      "paragraph": "ваивапрат мпроеарлекген вркверекне",
+      "type": "ECONOMICS",
+      "bibliography": "",
+      "direction": "",
+      "countries": "china",
+      "createdArt": "15.05.2024, 10:40:44",
+      "id": 17
+    },
+    {
+      "title": "",
+      "subtitle": "Jgbcfybt cnfnmb ytljkmujty vv vb",
+      "paragraph": "Its article about creating some articles with it form and about ",
+      "type": "ECONOMICS",
+      "bibliography": "",
+      "direction": "",
+      "countries": "russia",
+      "createdArt": "20.05.2024, 10:18:54",
+      "id": 18
+    },
+    {
+      "title": "Статья без описания",
+      "subtitle": "hfghfghfghfgjhghjghjghjghj",
+      "paragraph": "Это статья без описания для теста формы создания статьи",
+      "type": "SCIENCE",
+      "bibliography": "1. gotkhpogfjkhg[lmk;  2. gjhgjhfdlkjgdh';lgfdj;",
+      "direction": "",
+      "countries": [],
+      "createdArt": "20.05.2024, 10:18:54",
+      "id": 19
+    },
+    {
+      "title": "jhgjghjgjhgj",
+      "subtitle": "",
+      "paragraph": "jhgthdfjhgm, vbmvmvb nvjgj",
+      "type": "IT",
+      "bibliography": "",
+      "direction": "programming",
+      "countries": [],
+      "createdArt": "20.05.2024, 11:07:55",
+      "id": 20
+    },
+    {
+      "title": "4444444",
+      "subtitle": "",
+      "paragraph": "ffdgdfhdfgn bvhghjgjgfhgn",
+      "type": "SCIENCE",
+      "bibliography": "1. gotkhpogfjkhg[lmk;  2. gjhgjhfdlkjgdh';lgfdj;",
+      "direction": "",
+      "countries": [],
+      "createdArt": "20.05.2024, 11:10:44",
+      "id": 21
+    },
+    {
+      "title": "jhkhjlhjklhjk",
+      "subtitle": "",
+      "paragraph": "ljkhlkj;klj'/m,nmblijlui;ljkl",
+      "type": "IT",
+      "bibliography": "",
+      "direction": "administration",
+      "countries": [],
+      "createdArt": "20.05.2024, 11:10:44",
+      "id": 22
+    },
+    {
+      "title": "bcvncvbnbv",
+      "subtitle": "",
+      "paragraph": "vbmj,khjlkkj;lk.mn kjhkhjkhjkj",
+      "type": "SCIENCE",
+      "bibliography": "1. gotkhpogfjkhg[lmk;  2. gjhgjhfdlkjgdh';lgfdj;",
+      "direction": "",
+      "countries": [],
+      "createdArt": "20.05.2024, 11:13:14",
+      "id": 23
     }
   ]
 }
